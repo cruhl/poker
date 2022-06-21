@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "typescript:ui:current-file",
+      "type": "pwa-node",
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/**",
+        "!**/node_modules/**"
+      ],
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "env": {
+        "NODE_ENV": "development",
+        "TS_NODE_TRANSPILE_ONLY": "true",
+        "TS_NODE_PROJECT": "./packages/ui/tsconfig.json"
+      },
+      "args": ["${relativeFile}"],
+      "runtimeArgs": [
+        "--require",
+        "ts-node/register",
+        "--require",
+        "tsconfig-paths/register"
+      ]
+    }
+  ]
+}

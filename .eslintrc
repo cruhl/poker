@@ -1,0 +1,91 @@
+{
+  "root": true,
+  "plugins": ["prettier", "import", "@typescript-eslint", "functional"],
+
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+
+  "extends": [
+    "eslint:recommended",
+    "prettier",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:functional/external-recommended",
+    "plugin:functional/recommended"
+  ],
+
+  "rules": {
+    "no-inner-declarations": "off",
+
+    "import/no-unresolved": "off",
+    "import/export": "off",
+    "import/namespace": "off",
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always-and-inside-groups",
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+
+        "groups": ["builtin", "external", "parent", "index", "sibling"],
+        "pathGroups": [
+          { "pattern": "~/**", "group": "external" },
+          { "pattern": ".", "group": "sibling" }
+        ]
+      }
+    ],
+
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
+    "@typescript-eslint/explicit-module-boundary-types": [
+      "error",
+      {
+        "allowedNames": [
+          "runtime",
+          "document",
+          "resolvers",
+          "styles",
+          "Component"
+        ]
+      }
+    ],
+
+    // TODO: Enable when this TypeScript Bug is fixed: https://github.com/microsoft/TypeScript/issues/37901
+    "@typescript-eslint/no-unsafe-member-access": "off",
+
+    // TODO: Why is this buggy?
+    "@typescript-eslint/no-unsafe-assignment": "off",
+
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-return": "off",
+
+    // TODO: Why is this buggy?
+    "@typescript-eslint/restrict-plus-operands": "off",
+
+    "@typescript-eslint/prefer-readonly": "error",
+    "@typescript-eslint/no-unused-vars": "off",
+
+    "functional/no-expression-statement": "off",
+    "functional/no-return-void": "off",
+    "functional/functional-parameters": [
+      "error",
+      { "enforceParameterCount": false, "allowRestParameter": true }
+    ],
+
+    "functional/no-mixed-type": "off",
+    "functional/no-conditional-statement": "off",
+    "functional/immutable-data": [
+      "error",
+      { "ignorePattern": ["exports", "state"] }
+    ]
+  }
+}

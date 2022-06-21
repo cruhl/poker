@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "poker",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "yarn ui dev",
+    "ui": "yarn workspace @poker/ui"
+  },
+  "devDependencies": {
+    "yarn": "^1.22.19"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

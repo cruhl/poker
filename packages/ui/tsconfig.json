@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["./src/**/*", "./webpack.config.ts"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "lib": ["esnext", "dom"],
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": { "~/*": ["./*"] }
+  }
+}
